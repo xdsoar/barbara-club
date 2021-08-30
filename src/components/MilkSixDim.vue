@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import { use } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { RadarChart } from "echarts/charts";
@@ -13,6 +13,7 @@ import {
   LegendComponent,
 } from "echarts/components";
 import VChart from "vue-echarts";
+import originalMilkJson from "@/data/milk_data.json";
 
 use([
   CanvasRenderer,
@@ -29,78 +30,98 @@ use([
 })
 export default class MilkSixDim extends Vue {
   options = {};
-  created() {
+
+  originalMilk: any[] = originalMilkJson;
+
+  calMilkRoles(): Array<any> {
+    return this.originalMilk.map((milk) => milk.ID);
+  }
+
+  calDims(): Array<any> {
+    return [
+      { name: "三攻", max: 1 },
+      { name: "力智总和", max: 1 },
+      { name: "常驻提升", max: 1 },
+      { name: "常驻提升-双c", max: 1 },
+      { name: "爆发提升", max: 1 },
+      { name: "爆发提升-双c", max: 1 },
+    ];
+  }
+
+  wrapToolTipPanel(milk: any): any {
+    return (
+      `ID：${milk.ID}\n职业：${milk["职业"]}\n常驻力智：${milk["常驻力智"]}\n` +
+      `三攻：${milk["唱歌后三攻"]}\n太阳：${milk["一觉"] + milk["三觉"]}\n` +
+      `常驻倍率：${milk["常驻提升倍率"].toFixed(2)}\n爆发倍率：${milk["爆发提升倍率"].toFixed(2)}`
+    );
+  }
+
+  generateData(): Array<any> {
+    return this.originalMilk.map((milk) => {
+      return {
+        name: milk.ID,
+        tooltip: {
+          show: true,
+          trigger: "item",
+          milk: milk,
+          panel: this.wrapToolTipPanel(milk),
+          formatter: function (params: any) {
+            return params.data.tooltip.panel;
+          },
+          extraCssText: "width: 120px; white-space:pre-wrap;text-align: left",
+        },
+        value: [
+          milk["唱歌后三攻-归一化"],
+          milk["力智总和-归一化"],
+          milk["常驻提升-归一化"],
+          milk["常驻提升-2C-归一化"],
+          milk["相对提升伤害-归一化"],
+          milk["相对提升伤害2C-归一化"],
+        ],
+      };
+    });
+  }
+
+  toolPanel(nam: string): string {
+    return nam;
+  }
+
+  initOptions(): void {
+    console.log(originalMilkJson);
+    console.log(this.originalMilk);
     this.options = {
-      title: {
-        text: "芭芭拉奶量检测报告",
-      },
+      tooltip: { trigger: "item" },
       legend: {
-        data: ["Deer °", "蝶舞花翩翩", "凌采露华", "伊莉雅", "桃花舞翩翩"],
+          padding: 20,
+        selector: [
+          {
+            type: "all or inverse",
+            // 可以是任意你喜欢的 title
+            title: "反选",
+          }
+        ],
+        data: this.calMilkRoles(),
       },
       radar: {
-        indicator: [
-          { name: "三攻", max: 100 },
-          { name: "力智总和", max: 100 },
-          { name: "常驻buff", max: 100 },
-          { name: "常驻提升-双c", max: 100 },
-          { name: "爆发提升", max: 100 },
-          { name: "爆发提升-双c", max: 100 },
-        ],
+        indicator: this.calDims(),
       },
       series: [
         {
           type: "radar",
-          data: [
-            {
-              value: [
-                88.68360277136259, 100.0, 100.0, 100.0, 99.43782208109937,
-                99.21314369184995,
-              ],
-              name: "Deer °",
-            },
-
-            {
-              value: [
-                82.7752117013087, 94.64606172185184, 88.98687931477592,
-                98.8100656544247, 91.04939878194784, 98.30381706975506,
-              ],
-              name: "蝶舞花翩翩",
-            },
-
-            {
-              value: [
-                100.0, 92.23595265325858, 92.44336144122222, 92.53601360542505,
-                100.0, 100.0,
-              ],
-              name: "凌采露华",
-            },
-
-            {
-              value: [
-                77.5211701308699, 97.65776823156388, 91.6542838965611,
-                91.90277903709445, 90.01613658841289, 90.00681846664203,
-              ],
-              name: "伊莉雅",
-            },
-
-            {
-              value: [
-                76.78983833718245, 88.4645782774043, 79.56275374951481,
-                88.34561883923709, 82.33303836343762, 88.90508901633135,
-              ],
-              name: "桃花舞翩翩",
-            },
-          ],
+          data: this.generateData(),
         },
       ],
     };
+  }
+  created(): void {
+    this.initOptions();
   }
 }
 </script>
 
 <style scoped>
 .chart {
-  width: 900px;
+  width: 1000px;
   height: 800px;
 }
 </style>
