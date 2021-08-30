@@ -88,10 +88,8 @@ export default class MilkSixDim extends Vue {
     return nam
   }
 
-  resizeTheChart() {
-    if (this.$refs.milks) {
-      this.$refs.milks.resize()
-    }
+  resizeTheChart():void {
+    this.$refs?.milks?.resize()
   }
 
   initOptions(): void {

@@ -48,7 +48,7 @@ export default class SideBar extends Vue {
 
     private pageState = store.layoutState;
 
-    get routes() {
+    get routes() : Array<any> {
         return store.completeRouters;
     }
 
@@ -60,11 +60,11 @@ export default class SideBar extends Vue {
         }
     }
 
-    get activeMenu() {
+    get activeMenu(): string {
         const route = this.$route;
         const { meta, path } = route;
         // if set path, the sidebar will highlight the path you set
-        if (meta.activeMenu) {
+        if (meta?.activeMenu) {
             return meta.activeMenu;
         }
         return path;

@@ -15,20 +15,6 @@
           <img src="@/assets/user.png" class="user-avatar" />
           <i class="el-icon-caret-bottom" />
         </div>
-        <el-dropdown-menu slot="dropdown">
-          <router-link to="/profile/">
-            <el-dropdown-item>个人中心</el-dropdown-item>
-          </router-link>
-          <router-link to="/">
-            <el-dropdown-item>首页</el-dropdown-item>
-          </router-link>
-          <a target="_blank" href="https://github.com/Hansen-hjs/vue-admin">
-            <el-dropdown-item>项目地址</el-dropdown-item>
-          </a>
-          <el-dropdown-item divided>
-            <span style="display:block;" @click="logout">退出登录</span>
-          </el-dropdown-item>
-        </el-dropdown-menu>
       </el-dropdown>
     </div>
   </div>
