@@ -24,7 +24,7 @@ class ModuleStore {
     /** `layout`操作状态 */
     public layoutState: layoutStateType = {
         sidebarTextTheme: false,
-        showSidebarLogo: true,
+        showSidebarLogo: false,
         fixedHeader: false,
         showSettings: true,
         showTagsView: false,
