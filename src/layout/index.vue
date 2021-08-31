@@ -17,9 +17,8 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from "vue-property-decorator";
-import { mixins } from "vue-class-component";
-import { AppMain, Navbar, Sidebar } from "./components";
-import store from "../modules/store";
+import { AppMain, Navbar, Sidebar } from "@/layout/components";
+import store from "@/modules/store";
 
 const WIDTH = 992;
 

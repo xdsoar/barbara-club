@@ -10,6 +10,6 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((to) => {
     if (to.meta?.title) {
-        document.title = to.meta.title
+        document.title = '芭芭拉后援团-'+to.meta.title
     }
 });

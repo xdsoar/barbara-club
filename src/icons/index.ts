@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import SvgIcon from '../components/SvgIcon.vue'; 
+import SvgIcon from '@/layout/components/SvgIcon.vue'; 
 
 Vue.component('svg-icon', SvgIcon);
 

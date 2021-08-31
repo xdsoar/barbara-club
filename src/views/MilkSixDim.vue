@@ -70,7 +70,7 @@ export default class MilkSixDim extends Vue {
           formatter: function(params: any) {
             return params.data.tooltip.panel
           },
-          extraCssText: 'width: 120px; white-space:pre-wrap;text-align: left',
+          extraCssText: 'width: 160px; white-space:pre-wrap;text-align: left',
         },
         value: [
           milk['唱歌后三攻-归一化'],
@@ -89,12 +89,10 @@ export default class MilkSixDim extends Vue {
   }
 
   resizeTheChart():void {
-    this.$refs?.milks?.resize()
+    (this.$refs?.milks as any)?.resize()
   }
 
   initOptions(): void {
-    console.log(originalMilkJson)
-    console.log(this.originalMilk)
     this.options = {
       tooltip: { trigger: 'item' },
       legend: {

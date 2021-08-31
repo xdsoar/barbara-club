@@ -7,7 +7,7 @@
       @toggleClick="toggleSideBar"
     />
     <div class="right-menu">
-      <el-dropdown
+      <div
         class="avatar-container right-menu-item hover-effect"
         trigger="click"
       >
@@ -15,13 +15,13 @@
           <img src="@/assets/user.png" class="user-avatar" />
           <i class="el-icon-caret-bottom" />
         </div>
-      </el-dropdown>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Hamburger from '../../../components/Hamburger.vue'
+import Hamburger from '@/layout/components/Hamburger.vue'
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import store from '@/modules/store'
 

@@ -25,8 +25,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-import { routes } from "@/router"
+import { Component, Vue } from "vue-property-decorator";
 import SidebarItem from "./SidebarItem.vue";
 import SidebarLogo from "./SidebarLogo.vue";
 import store from "@/modules/store";
