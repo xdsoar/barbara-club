@@ -7,7 +7,7 @@
       @toggleClick="toggleSideBar"
     />
     <div class="right-menu">
-      <div>
+      <div class="avatar-container right-menu-item hover-effect">
         <div class="avatar-wrapper">
           <img src="@/assets/user.png" class="user-avatar" />
         </div>
