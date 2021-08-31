@@ -7,13 +7,9 @@
       @toggleClick="toggleSideBar"
     />
     <div class="right-menu">
-      <div
-        class="avatar-container right-menu-item hover-effect"
-        trigger="click"
-      >
+      <div>
         <div class="avatar-wrapper">
           <img src="@/assets/user.png" class="user-avatar" />
-          <i class="el-icon-caret-bottom" />
         </div>
       </div>
     </div>
