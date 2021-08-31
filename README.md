@@ -1,5 +1,7 @@
 # barbara-club
 
+[![Build Status](https://dev.azure.com/qwerppoo/personal/_apis/build/status/xdsoar.barbara-club?branchName=refs%2Fpull%2F4%2Fmerge)](https://dev.azure.com/qwerppoo/personal/_build/latest?definitionId=7&branchName=refs%2Fpull%2F4%2Fmerge)
+
 ## Project setup
 ```
 yarn install
