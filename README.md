@@ -1,6 +1,6 @@
 # barbara-club
 
-[![Build Status](https://dev.azure.com/qwerppoo/personal/_apis/build/status/xdsoar.barbara-club?branchName=refs%2Fpull%2F4%2Fmerge)](https://dev.azure.com/qwerppoo/personal/_build/latest?definitionId=7&branchName=refs%2Fpull%2F4%2Fmerge)
+[![Build Status](https://dev.azure.com/qwerppoo/personal/_apis/build/status/xdsoar.barbara-club?branchName=main)](https://dev.azure.com/qwerppoo/personal/_build/latest?definitionId=7&branchName=main)
 
 这里是芭芭拉真爱团，喜欢芭芭拉的天天来贡献代码！！！(bushi
 
