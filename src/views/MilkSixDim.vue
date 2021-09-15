@@ -53,9 +53,7 @@ export default class MilkSixDim extends Vue {
     return (
       `ID：${milk.ID}\n职业：${milk["职业"]}\n常驻力智：${milk["常驻力智"]}\n` +
       `三攻：${milk["唱歌后三攻"]}\n太阳：${milk["一觉"] + milk["三觉"]}\n` +
-      `常驻倍率：${milk["常驻提升倍率"].toFixed(2)}\n爆发倍率：${milk[
-        "爆发提升倍率"
-      ].toFixed(2)}`
+      `常驻倍率：${milk["常驻提升倍率"].toFixed(2)}\n爆发倍率：${milk["爆发提升倍率"].toFixed(2)}`
     );
   }
 
