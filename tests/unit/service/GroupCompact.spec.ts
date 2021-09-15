@@ -22,6 +22,8 @@ describe('Test group compact service', () => {
         "三攻": 3000,
         "唱歌后三攻": 3800,
         "力智总和": 61000,
+        常驻提升倍率: 6,
+        爆发提升倍率: 10
     };
 
     const milkYellowFace: Milk = {
@@ -34,6 +36,8 @@ describe('Test group compact service', () => {
         "三攻": 3000,
         "唱歌后三攻": 3800,
         "力智总和": 61000,
+        常驻提升倍率: 6,
+        爆发提升倍率: 10
     };
 
     const groupCompactService = new GroupCompact();
